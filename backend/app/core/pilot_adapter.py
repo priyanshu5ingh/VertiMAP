@@ -8,7 +8,7 @@ import json
 from typing import Dict, Any, List, Optional
 
 # Locate real_pilot_data.json
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 DATA_FILE_PATH = os.path.join(BASE_DIR, "data", "processed", "real_pilot_data.json")
 
 _pilot_cache: Optional[Dict[str, Any]] = None
