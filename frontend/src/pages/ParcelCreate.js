@@ -45,7 +45,7 @@ const ParcelCreate = () => {
         elevation_min: formData.elevation_min ? parseFloat(formData.elevation_min) : null,
         elevation_max: formData.elevation_max ? parseFloat(formData.elevation_max) : null
       };
-      const response = await axios.post('http://localhost:8000/api/v1/parcels/', payload);
+      const response = await axios.post((process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1') + '/parcels/', payload);
       setSuccess(true);
       setError(null);
       // Redirect to parcel list after a short delay

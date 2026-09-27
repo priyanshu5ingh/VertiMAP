@@ -16,7 +16,7 @@ const ParcelDetail = () => {
         setLoading(true);
         // Fetch parcel data
         const parcelResponse = await axios.get(
-          `http://localhost:8000/api/v1/parcels/?ulpin=${ulpin}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1'}/parcels/?ulpin=${ulpin}`
         );
         if (parcelResponse.data.length > 0) {
           setParcel(parcelResponse.data[0]);
@@ -24,7 +24,7 @@ const ParcelDetail = () => {
           # Attempt to fetch related statistics (if endpoints exist)
           try {
             const statsResponse = await axios.get(
-              `http://localhost:8000/api/v1/parcels/${parcelResponse.data[0].id}/stats`
+              `${process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1'}/parcels/${parcelResponse.data[0].id}/stats`
             );
             setStats(statsResponse.data);
           } catch (statsError) {

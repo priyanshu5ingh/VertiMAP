@@ -18,7 +18,6 @@ from ml.building_extraction import (
 )
 
 router = APIRouter(
-    prefix="/ml",
     tags=["machine learning"]
 )
 

@@ -14,7 +14,6 @@ from spatial.geopandas import GeoDataFrame, GeoSeries, read_file
 from spatial.pdal import Pipeline, PDALPoint, translate, filter_range
 
 router = APIRouter(
-    prefix="/spatial",
     tags=["spatial processing"]
 )
 

@@ -26,7 +26,7 @@ const DataSourceEdit = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/datasources/${id}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1'}/datasources/${id}`
         );
         setDataSource(response.data);
         // Initialize form data
@@ -73,7 +73,7 @@ const DataSourceEdit = () => {
         throw new Error('Data source not loaded');
       }
       const response = await axios.put(
-        `http://localhost:8000/api/v1/datasources/${dataSource.id}`,
+        `${process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1'}/datasources/${dataSource.id}`,
         payload
       );
       setSaving(false);

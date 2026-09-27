@@ -346,11 +346,11 @@ const MapView = () => {
     const initMap = async () => {
       try {
         // Fetch parcels
-        const parcelsResponse = await axios.get('http://localhost:8000/api/v1/parcels/');
+        const parcelsResponse = await axios.get((process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1') + '/parcels/');
         setParcels(parcelsResponse.data);
 
         // Fetch buildings
-        const buildingsResponse = await axios.get('http://localhost:8000/api/v1/buildings/');
+        const buildingsResponse = await axios.get((process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1') + '/buildings/');
         setBuildings(buildingsResponse.data);
 
         setLoading(false);

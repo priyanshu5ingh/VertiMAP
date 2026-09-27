@@ -30,7 +30,7 @@ const ParcelEdit = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/parcels/?ulpin=${ulpin}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1'}/parcels/?ulpin=${ulpin}`
         );
         if (response.data.length > 0) {
           const p = response.data[0];
@@ -91,7 +91,7 @@ const ParcelEdit = () => {
         throw new Error('Parcel data not loaded');
       }
       const response = await axios.put(
-        `http://localhost:8000/api/v1/parcels/${parcel.id}`,
+        `${process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1'}/parcels/${parcel.id}`,
         payload
       );
       setSaving(false);

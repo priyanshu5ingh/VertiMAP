@@ -36,7 +36,7 @@ const DataSourceCreate = () => {
         ...formData,
         metadata: formData.metadata || null
       };
-      const response = await axios.post('http://localhost:8000/api/v1/datasources/', payload);
+      const response = await axios.post((process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1') + '/datasources/', payload);
       setSuccess(true);
       setError(null);
       // Redirect to data sources list after a short delay
